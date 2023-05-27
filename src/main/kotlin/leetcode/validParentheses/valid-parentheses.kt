@@ -14,7 +14,7 @@ class Solution {
         for (c in s) {
             if (pairs.containsKey(c)) stack.add(c)
             else {
-                val top = stack.removeAt(stack.lastIndex) // stack.removeLastOrNull() in latest Kotlin
+                val top = stack.removeAt(stack.lastIndex) // stack.removeLast() in latest Kotlin
                 if (pairs[top] != c) return false
             }
         }
