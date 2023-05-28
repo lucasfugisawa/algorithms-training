@@ -13,12 +13,12 @@ class Solution {
 
     fun reverseList(head: ListNode?): ListNode? {
         var currentNode: ListNode? = head
-        var nextNode: ListNode? = null
+        var nextNode: ListNode?
         var previousNode: ListNode? = null
 
         while (currentNode != null) {
-            nextNode = currentNode?.next
-            currentNode?.next = previousNode
+            nextNode = currentNode.next
+            currentNode.next = previousNode
             previousNode = currentNode
             currentNode = nextNode
         }
