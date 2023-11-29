@@ -2,9 +2,14 @@ package leetCode.twoSum
 
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {
-        for (i in nums.indices)
-            for (j in i + 1 .. nums.lastIndex)
-                if (nums[i] + nums[j] == target) return intArrayOf(i, j)
+        val presentNumbers = mutableMapOf<Int, Int>()
+
+        nums.withIndex().forEach {
+            val complement = target - it.value
+            if (presentNumbers.containsKey(complement)) return intArrayOf(presentNumbers[complement]!!, it.index)
+            presentNumbers[it.value] = it.index
+        }
+
         return intArrayOf()
     }
 }
