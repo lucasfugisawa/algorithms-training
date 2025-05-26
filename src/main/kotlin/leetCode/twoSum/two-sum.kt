@@ -6,7 +6,8 @@ class Solution {
 
         nums.withIndex().forEach {
             val complement = target - it.value
-            if (presentNumbers.containsKey(complement)) return intArrayOf(presentNumbers[complement]!!, it.index)
+            if (complement in presentNumbers.keys)
+                return intArrayOf(presentNumbers[complement]!!, it.index)
             presentNumbers[it.value] = it.index
         }
 
